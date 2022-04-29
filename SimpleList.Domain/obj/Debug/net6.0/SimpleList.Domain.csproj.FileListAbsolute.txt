@@ -1,0 +1,12 @@
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\bin\Debug\net6.0\SimpleList.Domain.deps.json
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\bin\Debug\net6.0\SimpleList.Domain.dll
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\bin\Debug\net6.0\SimpleList.Domain.pdb
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\SimpleList.Domain.csproj.AssemblyReference.cache
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\SimpleList.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\SimpleList.Domain.AssemblyInfoInputs.cache
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\SimpleList.Domain.AssemblyInfo.cs
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\SimpleList.Domain.csproj.CoreCompileInputs.cache
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\SimpleList.Domain.dll
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\refint\SimpleList.Domain.dll
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\SimpleList.Domain.pdb
+C:\Repositories\Personal\SimpleList\SimpleList.Domain\obj\Debug\net6.0\ref\SimpleList.Domain.dll

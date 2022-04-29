@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SimpleList.Infraestructure/1.0.0": {
+        "dependencies": {
+          "SimpleList.Application": "1.0.0"
+        },
+        "runtime": {
+          "SimpleList.Infraestructure.dll": {}
+        }
+      },
+      "SimpleList.Application/1.0.0": {
+        "dependencies": {
+          "SimpleList.Domain": "1.0.0"
+        },
+        "runtime": {
+          "SimpleList.Application.dll": {}
+        }
+      },
+      "SimpleList.Domain/1.0.0": {
+        "runtime": {
+          "SimpleList.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SimpleList.Infraestructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SimpleList.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SimpleList.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

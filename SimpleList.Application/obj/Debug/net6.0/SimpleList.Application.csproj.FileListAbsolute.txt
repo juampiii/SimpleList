@@ -1,0 +1,15 @@
+C:\Repositories\Personal\SimpleList\SimpleList.Application\bin\Debug\net6.0\SimpleList.Application.deps.json
+C:\Repositories\Personal\SimpleList\SimpleList.Application\bin\Debug\net6.0\SimpleList.Application.dll
+C:\Repositories\Personal\SimpleList\SimpleList.Application\bin\Debug\net6.0\SimpleList.Application.pdb
+C:\Repositories\Personal\SimpleList\SimpleList.Application\bin\Debug\net6.0\SimpleList.Domain.dll
+C:\Repositories\Personal\SimpleList\SimpleList.Application\bin\Debug\net6.0\SimpleList.Domain.pdb
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.csproj.AssemblyReference.cache
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.AssemblyInfoInputs.cache
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.AssemblyInfo.cs
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.csproj.CoreCompileInputs.cache
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.csproj.CopyComplete
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.dll
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\refint\SimpleList.Application.dll
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\SimpleList.Application.pdb
+C:\Repositories\Personal\SimpleList\SimpleList.Application\obj\Debug\net6.0\ref\SimpleList.Application.dll
