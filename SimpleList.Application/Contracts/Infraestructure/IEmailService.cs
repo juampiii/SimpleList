@@ -4,4 +4,6 @@
     {
         Task<bool> SendEmail(Email email);
     }
+
+    public class Email { }
 }

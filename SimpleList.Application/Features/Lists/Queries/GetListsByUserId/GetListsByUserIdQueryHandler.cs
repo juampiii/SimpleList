@@ -7,11 +7,11 @@ namespace SimpleList.Application.Features.Lists.Queries.GetListsByUserId
 {
     public class GetListsByUserIdQueryHandler : IRequestHandler<GetListsByUserIdQuery, List<ListViewModel>>
     {
-        private readonly IVideoRepositoryAsync _repositoryAsync;
+        private readonly IListRepositoryAsync _repositoryAsync;
         private readonly IMapper _mapper;
 
         public GetListsByUserIdQueryHandler(
-            IVideoRepositoryAsync repositoryAsync, 
+            IListRepositoryAsync repositoryAsync, 
             IMapper mapper) 
         {
             _repositoryAsync = repositoryAsync;
