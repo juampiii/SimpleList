@@ -115,6 +115,7 @@ namespace SimpleList.Infraestructure.Repositories
 
         public T UpdateEntity(T entity)
         {
+            _context.Set<T>().Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
 
             return entity;

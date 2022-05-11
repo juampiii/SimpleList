@@ -7,19 +7,19 @@ namespace SimpleList.Application.Features.Lists.Queries.GetListsByUserId
 {
     public class GetListsByUserIdQueryHandler : IRequestHandler<GetListsByUserIdQuery, List<ListViewModel>>
     {
-        private readonly IListRepositoryAsync _repositoryAsync;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
         public GetListsByUserIdQueryHandler(
-            IListRepositoryAsync repositoryAsync, 
+            IUnitOfWork unitOfWork,
             IMapper mapper) 
         {
-            _repositoryAsync = repositoryAsync;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
         public async Task<List<ListViewModel>> Handle(GetListsByUserIdQuery request, CancellationToken cancellationToken)
         {
-            var lists = await _repositoryAsync.GetListsByUserIdAsync(request.UserId);
+            var lists = await _unitOfWork.ListRepository.GetListsByUserIdAsync(request.UserId);
 
             return _mapper.Map<List<ListViewModel>>(lists);
         }

@@ -17,6 +17,7 @@ namespace SimpleList.Infraestructure
 
             services.AddScoped(typeof(IRepositoryAsync<>), typeof(BaseRepository<>));
             services.AddScoped<IListRepositoryAsync, ListRepositoryAsync>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
