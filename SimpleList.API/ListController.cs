@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SimpleList.Application.Features.Lists.Commands.CreateList;
 using SimpleList.Application.Features.Lists.Queries.GetAllLists;
 using SimpleList.Application.Features.Lists.Queries.GetListsByUserId;
 using System.Net;
@@ -8,7 +9,7 @@ namespace SimpleList.API
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    public class ListController: ControllerBase
+    public class ListController : ControllerBase
     {
         private readonly IMediator _mediator;
 
@@ -17,12 +18,19 @@ namespace SimpleList.API
             _mediator = mediator;
         }
 
-        [HttpGet("{userId:int}", Name = "GetListsByUser")]
+        [HttpGet("user/{userId:int}", Name = "GetListsByUser")]
         [ProducesResponseType(typeof(IEnumerable<ListViewModel>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<ListViewModel>>> GetListsByUserId(int userId)
         {
-            List<ListViewModel>? response = await _mediator.Send(new GetListsByUserIdQuery(userId));
-            return Ok(response);
+            return Ok(await _mediator.Send(
+                new GetListsByUserIdQuery(userId)));
+        }
+
+        [HttpPost(Name = "CreateList")]
+        [ProducesResponseType(typeof(int), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<ListViewModel>>> CreateList([FromBody] CreateListCommand request)
+        {
+            return Ok(await _mediator.Send(request));
         }
     }
 }

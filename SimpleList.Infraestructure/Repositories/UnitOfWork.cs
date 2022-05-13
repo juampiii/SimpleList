@@ -18,7 +18,7 @@ namespace SimpleList.Infraestructure.Repositories
             _context = dBContext;
         }
 
-        public async Task<int> Complete()
+        public async Task<int> CompleteAsync()
         {
             return await _context.SaveChangesAsync();
         }
@@ -38,12 +38,12 @@ namespace SimpleList.Infraestructure.Repositories
 
             if (!_repositories.ContainsKey(entityType)) 
             {
-                var repositoryType = typeof(IRepositoryAsync<>);
+                var repositoryType = typeof(BaseRepository<>);
                 var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(TEntity)), _context);
                 _repositories.Add(entityType, repositoryInstance);
             }
 
-            return (IRepositoryAsync<TEntity>)_repositories;
+            return (IRepositoryAsync<TEntity>)_repositories[entityType];
         }
     }
 }
