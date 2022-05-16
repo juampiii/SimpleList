@@ -1,3 +1,4 @@
+using SimpleList.API.Middlewares;
 using SimpleList.Application;
 using SimpleList.Infraestructure;
 
@@ -22,6 +23,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<ExceptionsMiddleware>();
 app.UseAuthorization();
 
 app.MapControllers();
