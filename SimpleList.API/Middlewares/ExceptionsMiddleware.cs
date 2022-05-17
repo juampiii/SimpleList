@@ -27,41 +27,25 @@ namespace SimpleList.API.Middlewares
             {
                 await _next(context);
             }
+            catch (CustomApplicationExceptionBase customException)
+            {
+                _logger.LogError(customException, customException.Message);
+                await WriteErrorResponseAsync(context, customException.StatusCode, customException.Message, customException.Details);
+            }
             catch (Exception exception)
             {
                 _logger.LogError(exception, exception.Message);
-                context.Response.ContentType = "application/json";
-                int statusCode = (int)HttpStatusCode.InternalServerError;
-                string details = String.Empty;
-                switch (exception)
-                {
-                    case NotFoundException:
-                        statusCode = (int)HttpStatusCode.NotFound;
-                        break;
-                    case ValidationException validationException:
-                        statusCode = (int)HttpStatusCode.BadRequest;
-                        details = JsonObjectSerializer.SerializeObject(validationException.Errors);
-                        break;
-                    case BadRequestException:
-                        statusCode = (int)HttpStatusCode.BadRequest;
-                        break;
-                    default:
-                        break;
-                }
-
-                await WriteErrorResponseAsync(context, exception, statusCode, details);
+                await WriteErrorResponseAsync(context, (int)HttpStatusCode.InternalServerError, exception.Message, exception.StackTrace);
             }
         }
 
-        private async Task WriteErrorResponseAsync(HttpContext context, Exception exception, 
-            int statusCode, string details)
+        private async Task WriteErrorResponseAsync(HttpContext context, int statusCode, string? message, string? details)
         {
-            var response = new CodeErrorWithDetailsResponse(
-                statusCode,
-                exception.Message,
-                _hostEnvironment.IsDevelopment() ? details ?? exception.StackTrace : string.Empty);
-
+            context.Response.ContentType = "application/json";
             context.Response.StatusCode = statusCode;
+
+            CodeErrorWithDetailsResponse response = new CodeErrorWithDetailsResponse(
+                statusCode, message, _hostEnvironment.IsDevelopment() ? details : string.Empty);
 
             await context.Response.WriteAsync(JsonObjectSerializer.SerializeObject(response));
         }

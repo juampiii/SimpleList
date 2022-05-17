@@ -1,8 +1,10 @@
-﻿namespace SimpleList.Application.Exceptions
+﻿using System.Net;
+
+namespace SimpleList.Application.Exceptions
 {
-    public class BadRequestException : ApplicationException
+    public class BadRequestException : CustomApplicationExceptionBase
     {
-        public BadRequestException(string message) : base(message)
+        public BadRequestException(string message) : base((int)HttpStatusCode.BadRequest, message)
         {
         }
     }

@@ -1,9 +1,11 @@
 ﻿
+using System.Net;
+
 namespace SimpleList.Application.Exceptions
 {
-    public class NotFoundException : ApplicationException
+    public class NotFoundException : CustomApplicationExceptionBase
     {
-        public NotFoundException(string message) : base(message)
+        public NotFoundException(string message) : base((int)HttpStatusCode.NotFound, message)
         {
         }
     }

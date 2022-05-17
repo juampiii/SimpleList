@@ -4,10 +4,7 @@ namespace SimpleList.Application.Utils.Validations
 {
     public static class CommonGuardExtensions
     {
-        public static void IsNull<T>(
-            this IGuardClause guardClause,
-            T entity,
-            string? errorMessage = null)
+        public static void IsNull<T>(this IGuardClause guardClause, T entity, string? errorMessage = null)
         {
             if (entity != null)
                 return;

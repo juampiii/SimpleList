@@ -1,26 +1,31 @@
 ﻿using FluentValidation.Results;
+using SimpleList.Application.Utils;
+using System.Net;
 
 namespace SimpleList.Application.Exceptions
 {
-    public class ValidationException: ApplicationException
+    public class ValidationException : CustomApplicationExceptionBase
     {
-        public ValidationException() : base("Errors were found in the validation of the data received.")
+        public ValidationException() : base((int)HttpStatusCode.BadRequest, "Errors were found in the validation of the data received.")
         {
-            Errors = new Dictionary<string, string[]>();
         }
 
-        public ValidationException(string message) : base(message)
+        public ValidationException(string message) : base((int)HttpStatusCode.BadRequest, message)
         {
-            Errors = new Dictionary<string, string[]>();
         }
 
         public ValidationException(IEnumerable<ValidationFailure> failures) : this()
         {
-            Errors = failures
+            if (failures?.Any() != true)
+            {
+                return;
+            }
+
+           var ValidationErrors = failures
                 .GroupBy(f => f.PropertyName, e => e.ErrorMessage)
                 .ToDictionary(f => f.Key, f => f.ToArray());
-        }
 
-        public IDictionary<string, string[]> Errors { get; set; }
+            _details = JsonObjectSerializer.SerializeObject(ValidationErrors);
+        }
     }
 }

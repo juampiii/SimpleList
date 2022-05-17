@@ -2,7 +2,6 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using SimpleList.Application.Contracts.Persistence;
-using SimpleList.Application.Exceptions;
 using SimpleList.Application.Extensions;
 using SimpleList.Application.Features.Lists.Queries.GetListsByUserId;
 using SimpleList.Application.Utils.Validations;
