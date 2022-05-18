@@ -29,7 +29,7 @@ namespace SimpleList.Application.Features.Lists.Commands.CreateList
 
             await _unitOfWork.CompleteAsync();
 
-            _logger.LogCreationInformation(nameof(List), newList.Id);
+            _logger.LogBaseDomainModelCreation<List>(newList.Id);
 
             return newList.Id;
         }

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using SimpleList.Application.Features.Lists.Commands.CreateList;
+using SimpleList.Application.Features.Lists.Commands.DeleteList;
 using SimpleList.Application.Features.Lists.Commands.EditList;
 using SimpleList.Application.Features.Lists.Queries.GetAllLists;
 using SimpleList.Application.Features.Lists.Queries.GetListsByUserId;
@@ -37,6 +38,13 @@ namespace SimpleList.API
         [HttpPut(Name = "UpdateList")]
         [ProducesResponseType(typeof(ListViewModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<ListViewModel>>> EditList([FromBody] UpdateListCommand request)
+        {
+            return Ok(await _mediator.Send(request));
+        }
+
+        [HttpDelete("{id:int}", Name = "DeleteList")]
+        [ProducesResponseType(typeof(ListViewModel), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<ListViewModel>>> DeleteList([FromRoute] DeleteListCommand request)
         {
             return Ok(await _mediator.Send(request));
         }

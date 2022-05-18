@@ -36,7 +36,7 @@ namespace SimpleList.Application.Features.Lists.Commands.EditList
             _unitOfWork.GetRepository<List>().UpdateEntity(listToEdit);
             await _unitOfWork.CompleteAsync();
 
-            _logger.LogUpdateInformation(nameof(List), listToEdit.Id);
+            _logger.LogBaseDomainModelUpdate<List>(listToEdit.Id);
 
             return _mapper.Map<ListViewModel>(listToEdit);
         }
