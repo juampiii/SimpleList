@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SimpleList.Application.Features.Lists.Commands.CreateList;
 using SimpleList.Application.Features.Lists.Commands.DeleteList;
@@ -10,6 +11,7 @@ using System.Net;
 namespace SimpleList.API
 {
     [ApiController]
+    [Authorize]
     [Route("api/v1/[Controller]")]
     public class ListController : ControllerBase
     {
@@ -43,6 +45,7 @@ namespace SimpleList.API
         }
 
         [HttpDelete("{id:int}", Name = "DeleteList")]
+        [Authorize(Roles = "Administrator")]
         [ProducesResponseType(typeof(ListViewModel), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<ListViewModel>>> DeleteList([FromRoute] DeleteListCommand request)
         {

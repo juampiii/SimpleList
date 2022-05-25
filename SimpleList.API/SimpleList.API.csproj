@@ -16,11 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimpleList.Application\SimpleList.Application.csproj" />
+    <ProjectReference Include="..\SimpleList.Identity\SimpleList.Identity.csproj" />
     <ProjectReference Include="..\SimpleList.Infraestructure\SimpleList.Infraestructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
