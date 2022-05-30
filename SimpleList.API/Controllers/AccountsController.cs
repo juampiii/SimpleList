@@ -6,11 +6,11 @@ namespace SimpleList.API.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class AccountController: ControllerBase
+    public class AccountsController: ControllerBase
     {
         private readonly IAuthService _authService;
 
-        public AccountController(IAuthService authService)
+        public AccountsController(IAuthService authService)
         {
             _authService = authService;
         }

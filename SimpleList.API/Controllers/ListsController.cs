@@ -13,21 +13,13 @@ namespace SimpleList.API
     [ApiController]
     [Authorize]
     [Route("api/v1/[Controller]")]
-    public class ListController : ControllerBase
+    public class ListsController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public ListController(IMediator mediator)
+        public ListsController(IMediator mediator)
         {
             _mediator = mediator;
-        }
-
-        [HttpGet("user/{userId:int}", Name = "GetListsByUser")]
-        [ProducesResponseType(typeof(IEnumerable<ListViewModel>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<ListViewModel>>> GetListsByUserId(int userId)
-        {
-            return Ok(await _mediator.Send(
-                new GetListsByUserIdQuery(userId)));
         }
 
         [HttpPost(Name = "CreateList")]
@@ -50,6 +42,14 @@ namespace SimpleList.API
         public async Task<ActionResult<IEnumerable<ListViewModel>>> DeleteList([FromRoute] DeleteListCommand request)
         {
             return Ok(await _mediator.Send(request));
+        }
+
+        [HttpGet("user/{userId:int}", Name = "GetListsByUser")]
+        [ProducesResponseType(typeof(IEnumerable<ListViewModel>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<ListViewModel>>> GetListsByUserId(int userId)
+        {
+            return Ok(await _mediator.Send(
+                new GetListsByUserIdQuery(userId)));
         }
     }
 }
